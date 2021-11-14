@@ -1,0 +1,161 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6d70d0a..e8b7b40 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -39,9 +39,61 @@ add_subdirectory(lib/JUCE)
+ # Adding any custom modules you might have:
+ juce_add_module(lib/react-juce/react_juce)
+ 
+-enable_testing()
+-configure_file(${CMAKE_SOURCE_DIR}/CTestCustom.cmake ${CMAKE_BINARY_DIR})
++#enable_testing()
++#configure_file(${CMAKE_CURRENT_LIST_DIR}/CTestCustom.cmake ${CMAKE_BINARY_DIR})
+ 
+ add_subdirectory(src)
+-add_subdirectory(tests)
++#add_subdirectory(tests)
+ add_subdirectory(benchmark)
++
++# begin AAP specifics. -->
++
++# They are needed in desktop too, for generate-aap-metadata.
++target_include_directories(Os251 PRIVATE
++        "${AAP_DIR}/native/androidaudioplugin/core/include"
++        "${AAP_DIR}/native/plugin-api/include"
++        )
++juce_add_module(${AAP_JUCE_DIR}/modules/juceaap_audio_plugin_client)
++
++# begin Android specifics -->
++# It is not beautiful, but there does not seem to be any way to add custom include directory for modules.
++
++if (ANDROID)
++
++# dependencies
++find_library(log "log")
++find_library(android "android")
++find_library(glesv2 "GLESv2")
++find_library(egl "EGL")
++set(cpufeatures_lib "cpufeatures")
++set(oboe_lib "oboe")
++
++target_include_directories(Os251 PRIVATE
++        "${ANDROID_NDK}/sources/android/cpufeatures"
++        "${OBOE_DIR}/include"
++        )
++
++endif (ANDROID)
++# <-- end Android specifics
++# <-- end AAP specifics
++
++
++# begin AAP specifics. -->
++# It is needed in desktop too, for generate-aap-metadata.
++target_link_libraries(Os251 PUBLIC
++    juceaap_audio_plugin_client
++    )
++
++# begin Android specifics -->
++if (ANDROID)
++target_link_libraries(Os251 PUBLIC
++    ${log}
++    ${android}
++    ${glesv2}
++    ${egl}
++    ${cpufeatures_lib}
++    #${oboe_lib}
++    )
++endif (ANDROID)
++# <-- end Android specifics
++# <-- end AAP specifics
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index ba31e37..bdbcc07 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -21,7 +21,7 @@ endif()
+ juce_add_plugin(Os251
+         # VERSION ...                                     # Set this if the plugin version is different to the project version
+         # ICON_BIG ""   # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
+-        # ICON_SMALL "${CMAKE_SOURCE_DIR}/Assets/icon16.png "
++        # ICON_SMALL "../Assets/icon16.png "
+         COMPANY_NAME "Onsen Audio"                    # Specify the name of the plugin's author
+         COMPANY_COPYRIGHT "Onsen Audio"
+         COMPANY_WEBSITE "https://onsenaudio.com/"
+@@ -66,44 +66,44 @@ target_compile_definitions(Os251
+         )
+ 
+ set(BINARY_SOURCES
+-    ${CMAKE_SOURCE_DIR}/src/jsui/build/js/main.js
+-    ${CMAKE_SOURCE_DIR}/assets/Recursive-Regular.ttf
+-
+-    ${CMAKE_SOURCE_DIR}/assets/images/left.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/left_over.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/left_down.png
+-
+-    ${CMAKE_SOURCE_DIR}/assets/images/right.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/right_over.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/right_down.png
+-
+-    ${CMAKE_SOURCE_DIR}/assets/images/reload.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/reload_over.png
+-    ${CMAKE_SOURCE_DIR}/assets/images/reload_down.png
+-
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Default.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Bass/Bass0.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Bass/Bass1.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Bass/Bass2.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Bass/Bass3.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/FX/FX0.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/FX/FX1.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/FX/FX2.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/FX/FX3.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Key/Key0.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Key/Key1.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Key/Key2.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Key/Key3.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Pad/Pad0.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Pad/Pad1.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Pad/Pad2.oapreset
+-    ${CMAKE_SOURCE_DIR}/assets/presets/Factory/Pad/Pad3.oapreset
++    ../src/jsui/build/js/main.js
++    ../assets/Recursive-Regular.ttf
++
++    ../assets/images/left.png
++    ../assets/images/left_over.png
++    ../assets/images/left_down.png
++
++    ../assets/images/right.png
++    ../assets/images/right_over.png
++    ../assets/images/right_down.png
++
++    ../assets/images/reload.png
++    ../assets/images/reload_over.png
++    ../assets/images/reload_down.png
++
++    ../assets/presets/Default.oapreset
++    ../assets/presets/Factory/Bass/Bass0.oapreset
++    ../assets/presets/Factory/Bass/Bass1.oapreset
++    ../assets/presets/Factory/Bass/Bass2.oapreset
++    ../assets/presets/Factory/Bass/Bass3.oapreset
++    ../assets/presets/Factory/FX/FX0.oapreset
++    ../assets/presets/Factory/FX/FX1.oapreset
++    ../assets/presets/Factory/FX/FX2.oapreset
++    ../assets/presets/Factory/FX/FX3.oapreset
++    ../assets/presets/Factory/Key/Key0.oapreset
++    ../assets/presets/Factory/Key/Key1.oapreset
++    ../assets/presets/Factory/Key/Key2.oapreset
++    ../assets/presets/Factory/Key/Key3.oapreset
++    ../assets/presets/Factory/Pad/Pad0.oapreset
++    ../assets/presets/Factory/Pad/Pad1.oapreset
++    ../assets/presets/Factory/Pad/Pad2.oapreset
++    ../assets/presets/Factory/Pad/Pad3.oapreset
+ )
+ 
+ if (UNIX)
+-    list(APPEND BINARY_SOURCES ${CMAKE_SOURCE_DIR}/assets/Recursive-Regular.ttf)
++    list(APPEND BINARY_SOURCES ../assets/Recursive-Regular.ttf)
+ else()
+-    list(APPEND BINARY_SOURCES ${CMAKE_SOURCE_DIR}/assets/Os251Font125Percent.ttf)
++    list(APPEND BINARY_SOURCES ../assets/Os251Font125Percent.ttf)
+ endif()
+ 
+ juce_add_binary_data(Os251Binaries
