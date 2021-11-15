@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core" xmlns:pp="urn:org.androidaudioplugin.port">
-  <plugin name="Hera" category="Synth" author="A/C Electronics" manufacturer=""
-          unique-id="juceaap:48657261" library="libHera_Standalone.so"
+  <plugin name="OS-251" category="Instrument" author="Onsen Audio" manufacturer="https://onsenaudio.com/"
+          unique-id="juceaap:6f735359" library="libOS-251_Standalone.so"
           entrypoint="GetJuceAAPFactoryStandalone" assets="">
     <ports>
-      <port name="VCA depth" direction="input" pp:maximum="1.0" content="other"/>
-      <port name="VCA type" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Sin" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="DCO PWM depth" direction="input" pp:maximum="1.0" content="other"/>
-      <port name="DCO PWM modulator" direction="input" pp:default="0.0" pp:maximum="2.0"
+      <port name="Square" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="DCO saw level" direction="input" pp:maximum="1.0" content="other"/>
-      <port name="DCO pulse level" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Saw" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="DCO sub level" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="SubSquare" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="DCO noise level" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Noise" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="DCO range" direction="input" pp:maximum="2.0" content="other"/>
-      <port name="DCO pitch mod depth" direction="input" pp:default="0.0"
-            pp:maximum="1.0" content="other"/>
-      <port name="VCF cutoff" direction="input" pp:maximum="1.0" content="other"/>
-      <port name="VCF resonance" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Shape" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="VCF envelope mod depth" direction="input" pp:minimum="-1.0"
-            pp:maximum="1.0" content="other"/>
-      <port name="VCF LFO mod depth" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Attack" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="VCF keyboard mod depth" direction="input" pp:default="0.0"
-            pp:maximum="1.0" content="other"/>
-      <port name="VCF bend depth" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Decay" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="Envelope attack" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Sustain" direction="input" pp:maximum="1.0" pp:default="1.0"
             content="other"/>
-      <port name="Envelope decay" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Release" direction="input" pp:maximum="1.0" pp:default="0.5"
             content="other"/>
-      <port name="Envelope sustain" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="LFO Rate" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="Envelope release" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Synced LFO Rate" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="LFO trigger mode" direction="input" pp:maximum="1.0" content="other"/>
-      <port name="LFO rate" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="LFO Phase" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="LFO delay" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="LFO Chorus" direction="input" pp:maximum="1.0" pp:default="0.5"
             content="other"/>
-      <port name="HPF" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="Sync" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="Chorus I" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="LFO -&gt; Pitch" direction="input" pp:default="0.0" pp:maximum="1.0"
             content="other"/>
-      <port name="Chorus II" direction="input" pp:default="0.0" pp:maximum="1.0"
+      <port name="LFO -&gt; Freq" direction="input" pp:default="0.0" pp:maximum="1.0"
+            content="other"/>
+      <port name="LFO -&gt; Shape" direction="input" pp:default="0.0" pp:maximum="1.0"
+            content="other"/>
+      <port name="Frequency" direction="input" pp:maximum="1.0" pp:default="1.0"
+            content="other"/>
+      <port name="Resonance" direction="input" pp:maximum="1.0" pp:default="0.3499999940395355"
+            content="other"/>
+      <port name="Env -&gt; Filter" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="HPF Freq" direction="input" pp:default="0.0" pp:maximum="1.0"
+            content="other"/>
+      <port name="Chorus" direction="input" pp:default="0.0" pp:maximum="1.0"
+            content="other"/>
+      <port name="Env -&gt; Amp" direction="input" pp:maximum="1.0" pp:default="1.0"
+            content="other"/>
+      <port name="Pitch Bend" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="Octave" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="Semi" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="Fine Tune" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="Portamento" direction="input" pp:default="0.0" pp:maximum="1.0"
+            content="other"/>
+      <port name="Master Vol" direction="input" pp:maximum="1.0" pp:default="0.5"
+            content="other"/>
+      <port name="Num Voices" direction="input" pp:maximum="1.0" pp:default="0.2849999964237213"
             content="other"/>
       <port direction="output" content="audio" name="Left"/>
       <port direction="output" content="audio" name="Right"/>
