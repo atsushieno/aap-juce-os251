@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugins xmlns="urn:org.androidaudioplugin.core" xmlns:pp="urn:org.androidaudioplugin.port">
+<plugins xmlns="urn:org.androidaudioplugin.core">
   <plugin name="OS-251" category="Instrument" author="Onsen Audio" manufacturer="https://onsenaudio.com/"
-          unique-id="juceaap:6f735359" library="libOS-251_Standalone.so"
+          unique-id="juceaap:6f735359" library="libOs251_Standalone.so"
           entrypoint="GetJuceAAPFactoryStandalone" assets="">
+    <extensions>
+      <extension uri="urn://androidaudioplugin.org/extensions/presets/v1"/>
+    </extensions>
+    <parameters xmlns="urn://androidaudioplugin.org/extensions/parameters">
+      <parameter id="0" name="Attack" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="1" name="Decay" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="2" name="Sustain" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="3" name="Release" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="4" name="LFO Rate" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="5" name="Synced LFO Rate" direction="input" default="0.0"
+                 minimum="0.0" maximum="1.0" content="other"/>
+      <parameter id="6" name="LFO Phase" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="7" name="LFO Delay" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="8" name="Sync" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="9" name="LFO -&gt; Pitch" direction="input" default="0.0"
+                 minimum="0.0" maximum="1.0" content="other"/>
+      <parameter id="10" name="LFO -&gt; Freq" direction="input" default="0.0"
+                 minimum="0.0" maximum="1.0" content="other"/>
+      <parameter id="11" name="LFO -&gt; Shape" direction="input" default="0.0"
+                 minimum="0.0" maximum="1.0" content="other"/>
+      <parameter id="12" name="Frequency" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="13" name="Resonance" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.3499999940395355" content="other"/>
+      <parameter id="14" name="Env -&gt; Filter" direction="input" minimum="0.0"
+                 maximum="1.0" default="0.5" content="other"/>
+      <parameter id="15" name="Sin" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="16" name="Square" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="17" name="Saw" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="18" name="SubSquare" direction="input" minimum="0.0" maximum="1.0"
+                 default="1.0" content="other"/>
+      <parameter id="19" name="Noise" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="20" name="Shape" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="21" name="Chorus" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="22" name="HPF Freq" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="23" name="Env -&gt; Amp" direction="input" minimum="0.0"
+                 maximum="1.0" default="1.0" content="other"/>
+      <parameter id="24" name="Pitch Bend" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="25" name="Octave" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="26" name="Semi" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="27" name="Fine Tune" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="28" name="Portamento" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+      <parameter id="29" name="Master Vol" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.5" content="other"/>
+      <parameter id="30" name="Num Voices" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.2849999964237213" content="other"/>
+      <parameter id="31" name="Unison" direction="input" default="0.0" minimum="0.0"
+                 maximum="1.0" content="other"/>
+    </parameters>
     <ports>
-      <port name="Sin" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Square" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Saw" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="SubSquare" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Noise" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Shape" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Attack" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Decay" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Sustain" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Release" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="LFO Rate" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Synced LFO Rate" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="LFO Phase" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="LFO Chorus" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Sync" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="LFO -&gt; Pitch" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="LFO -&gt; Freq" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="LFO -&gt; Shape" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Frequency" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Resonance" direction="input" pp:maximum="1.0" pp:default="0.3499999940395355"
-            content="other"/>
-      <port name="Env -&gt; Filter" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="HPF Freq" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Chorus" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Env -&gt; Amp" direction="input" pp:maximum="1.0" pp:default="1.0"
-            content="other"/>
-      <port name="Pitch Bend" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Octave" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Semi" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Fine Tune" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Portamento" direction="input" pp:default="0.0" pp:maximum="1.0"
-            content="other"/>
-      <port name="Master Vol" direction="input" pp:maximum="1.0" pp:default="0.5"
-            content="other"/>
-      <port name="Num Voices" direction="input" pp:maximum="1.0" pp:default="0.2849999964237213"
-            content="other"/>
       <port direction="output" content="audio" name="Left"/>
       <port direction="output" content="audio" name="Right"/>
-      <port direction="input" content="midi" name="MIDI input"/>
+      <port direction="input" content="midi2" name="MIDI input"/>
     </ports>
   </plugin>
 </plugins>

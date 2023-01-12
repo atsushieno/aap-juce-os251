@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6d70d0a..87839fb 100644
+index 0171ded..f2f38f1 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -39,9 +39,65 @@ add_subdirectory(lib/JUCE)
+@@ -45,9 +45,64 @@ add_subdirectory(lib/JUCE)
  # Adding any custom modules you might have:
  juce_add_module(lib/react-juce/react_juce)
  
@@ -24,8 +24,7 @@ index 6d70d0a..87839fb 100644
 +
 +# They are needed in desktop too, for generate-aap-metadata.
 +target_include_directories(Os251 PRIVATE
-+        "${AAP_DIR}/native/androidaudioplugin/core/include"
-+        "${AAP_DIR}/native/plugin-api/include"
++        "${AAP_DIR}/include"
 +        )
 +juce_add_module(${AAP_JUCE_DIR}/modules/juceaap_audio_plugin_client)
 +
@@ -71,8 +70,15 @@ index 6d70d0a..87839fb 100644
 +endif (ANDROID)
 +# <-- end Android specifics
 +# <-- end AAP specifics
+diff --git a/lib/JUCE b/lib/JUCE
+index 28291de..994a317 160000
+--- a/lib/JUCE
++++ b/lib/JUCE
+@@ -1 +1 @@
+-Subproject commit 28291decbffc856c7c31df68140b408dfab6b1e4
++Subproject commit 994a3176c7fb53dbd445d0d49469c9aef706e244
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index ba31e37..bdbcc07 100644
+index 0ace584..51b1c69 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -21,7 +21,7 @@ endif()
@@ -164,10 +170,10 @@ index ba31e37..bdbcc07 100644
  
  juce_add_binary_data(Os251Binaries
 diff --git a/src/PluginEditor.cpp b/src/PluginEditor.cpp
-index be0f51e..5f91fc7 100644
+index ac319bf..a620c34 100644
 --- a/src/PluginEditor.cpp
 +++ b/src/PluginEditor.cpp
-@@ -100,7 +100,7 @@ juce::File Os251AudioProcessorEditor::getBundle()
+@@ -103,7 +103,7 @@ juce::File Os251AudioProcessorEditor::getBundle()
          fs.flush();
      }
  
