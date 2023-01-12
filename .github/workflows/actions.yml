@@ -43,7 +43,7 @@ jobs:
       run: echo "yes" | $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.18.1" --channel=3
     - name: build
       run: |
-        cd external/OS-251/src/jsui && npm ci && npm run build && cd ../../../..
+        cd external/OS-251/src/jsui && npm ci && NODE_OPTIONS=--openssl-legacy-provider npm run build && cd ../../../..
         make
     - name: upload-artifact
       uses: actions/upload-artifact@v1

@@ -72,13 +72,6 @@ index 0171ded..49a4129 100644
 +endif (ANDROID)
 +# <-- end Android specifics
 +# <-- end AAP specifics
-diff --git a/lib/JUCE b/lib/JUCE
-index 28291de..994a317 160000
---- a/lib/JUCE
-+++ b/lib/JUCE
-@@ -1 +1 @@
--Subproject commit 28291decbffc856c7c31df68140b408dfab6b1e4
-+Subproject commit 994a3176c7fb53dbd445d0d49469c9aef706e244
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
 index 0ace584..51b1c69 100644
 --- a/src/CMakeLists.txt
