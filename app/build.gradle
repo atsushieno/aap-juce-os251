@@ -56,7 +56,7 @@ android {
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
         implementation "dev.atsushieno:libcxx-provider:$ndk_version"
         implementation "androidx.startup:startup-runtime:1.1.1"
-        implementation "org.androidaudioplugin:androidaudioplugin:$aap_version")
-        implementation "org.androidaudioplugin:androidaudioplugin-midi-device-service:$aap_version")
+        implementation "org.androidaudioplugin:androidaudioplugin:$aap_version"
+        implementation "org.androidaudioplugin:androidaudioplugin-midi-device-service:$aap_version"
     }
 }
