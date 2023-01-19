@@ -1,5 +1,2 @@
 rootProject.name = 'OS-251'
-include ':app', ':androidaudioplugin', ':androidaudioplugin-midi-device-service'
-
-project(":androidaudioplugin").projectDir = new File('external/aap-core/java/androidaudioplugin')
-project(":androidaudioplugin-midi-device-service").projectDir = new File('external/aap-core/java/androidaudioplugin-midi-device-service')
+include ':app'

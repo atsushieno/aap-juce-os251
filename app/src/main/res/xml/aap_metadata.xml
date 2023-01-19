@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
-  <plugin name="OS-251" category="Instrument" author="Onsen Audio" manufacturer="https://onsenaudio.com/"
+  <plugin name="AAP OS-251" category="Instrument" author="AAP / Onsen Audio" manufacturer="https://github.com/atsushieno/aap-juce-os251"
           unique-id="juceaap:6f735359" library="libOs251_Standalone.so"
           entrypoint="GetJuceAAPFactoryStandalone" assets="">
     <extensions>
