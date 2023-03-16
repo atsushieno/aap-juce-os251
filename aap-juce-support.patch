@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 0171ded..45e6c06 100644
+index 0171ded..7bce3cc 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -25,6 +25,7 @@ endif()
@@ -18,7 +18,7 @@ index 0171ded..45e6c06 100644
  
  # Enable JUCE. Do not use find_package to prevent from mix up with one globally installed.
  add_subdirectory(lib/JUCE)
-@@ -45,9 +47,68 @@ add_subdirectory(lib/JUCE)
+@@ -45,9 +47,69 @@ add_subdirectory(lib/JUCE)
  # Adding any custom modules you might have:
  juce_add_module(lib/react-juce/react_juce)
  
@@ -44,7 +44,7 @@ index 0171ded..45e6c06 100644
 +target_include_directories(Os251 PRIVATE
 +        "${AAP_DIR}/include"
 +        )
-+juce_add_module(${AAP_JUCE_DIR}/modules/juceaap_audio_plugin_client)
++juce_add_module(${AAP_JUCE_DIR}/aap-modules/juceaap_audio_plugin_client)
 +
 +# begin Android specifics -->
 +# It is not beautiful, but there does not seem to be any way to add custom include directory for modules.
@@ -64,6 +64,7 @@ index 0171ded..45e6c06 100644
 +        "${OBOE_DIR}/include"
 +        )
 +
++add_compile_definitions([[JUCE_DONT_AUTO_OPEN_MIDI_DEVICES_ON_MOBILE=1]])
 +endif (ANDROID)
 +# <-- end Android specifics
 +# <-- end AAP specifics
