@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
-  <plugin name="AAP OS-251" category="Instrument" author="AAP / Onsen Audio" manufacturer="https://github.com/atsushieno/aap-juce-os251"
-          unique-id="juceaap:6f735359" library="libOs251_Standalone.so"
-          entrypoint="GetJuceAAPFactoryStandalone" assets="">
+  <plugin name="OS-251" category="Instrument" author="Onsen Audio" developer="Onsen Audio"
+          unique-id="juceaap:6f735359" library="libOS-251_Standalone.so"
+          entrypoint="GetJuceAAPFactoryStandalone">
     <extensions>
-      <extension uri="urn://androidaudioplugin.org/extensions/presets/v1"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/presets/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/state/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/midi2/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/gui/v2"/>
     </extensions>
     <parameters xmlns="urn://androidaudioplugin.org/extensions/parameters">
-      <parameter id="0" name="Attack" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
+      <parameter id="0" name="Attack" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
       <parameter id="1" name="Decay" direction="input" minimum="0.0" maximum="1.0"
                  default="1.0" content="other"/>
       <parameter id="2" name="Sustain" direction="input" minimum="0.0" maximum="1.0"
                  default="1.0" content="other"/>
       <parameter id="3" name="Release" direction="input" minimum="0.0" maximum="1.0"
                  default="0.5" content="other"/>
-      <parameter id="4" name="LFO Rate" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
-      <parameter id="5" name="Synced LFO Rate" direction="input" default="0.0"
-                 minimum="0.0" maximum="1.0" content="other"/>
-      <parameter id="6" name="LFO Phase" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
+      <parameter id="4" name="LFO Rate" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
+      <parameter id="5" name="Synced LFO Rate" direction="input" minimum="0.0"
+                 maximum="1.0" default="0.0" content="other"/>
+      <parameter id="6" name="LFO Phase" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
       <parameter id="7" name="LFO Delay" direction="input" minimum="0.0" maximum="1.0"
                  default="0.5" content="other"/>
-      <parameter id="8" name="Sync" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
-      <parameter id="9" name="LFO -&gt; Pitch" direction="input" default="0.0"
-                 minimum="0.0" maximum="1.0" content="other"/>
-      <parameter id="10" name="LFO -&gt; Freq" direction="input" default="0.0"
-                 minimum="0.0" maximum="1.0" content="other"/>
-      <parameter id="11" name="LFO -&gt; Shape" direction="input" default="0.0"
-                 minimum="0.0" maximum="1.0" content="other"/>
+      <parameter id="8" name="Sync" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
+      <parameter id="9" name="LFO -&gt; Pitch" direction="input" minimum="0.0"
+                 maximum="1.0" default="0.0" content="other"/>
+      <parameter id="10" name="LFO -&gt; Freq" direction="input" minimum="0.0"
+                 maximum="1.0" default="0.0" content="other"/>
+      <parameter id="11" name="LFO -&gt; Shape" direction="input" minimum="0.0"
+                 maximum="1.0" default="0.0" content="other"/>
       <parameter id="12" name="Frequency" direction="input" minimum="0.0" maximum="1.0"
                  default="1.0" content="other"/>
       <parameter id="13" name="Resonance" direction="input" minimum="0.0" maximum="1.0"
@@ -46,14 +50,14 @@
                  default="1.0" content="other"/>
       <parameter id="18" name="SubSquare" direction="input" minimum="0.0" maximum="1.0"
                  default="1.0" content="other"/>
-      <parameter id="19" name="Noise" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
-      <parameter id="20" name="Shape" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
-      <parameter id="21" name="Chorus" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
-      <parameter id="22" name="HPF Freq" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
+      <parameter id="19" name="Noise" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
+      <parameter id="20" name="Shape" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
+      <parameter id="21" name="Chorus" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
+      <parameter id="22" name="HPF Freq" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
       <parameter id="23" name="Env -&gt; Amp" direction="input" minimum="0.0"
                  maximum="1.0" default="1.0" content="other"/>
       <parameter id="24" name="Pitch Bend" direction="input" minimum="0.0" maximum="1.0"
@@ -64,14 +68,14 @@
                  default="0.5" content="other"/>
       <parameter id="27" name="Fine Tune" direction="input" minimum="0.0" maximum="1.0"
                  default="0.5" content="other"/>
-      <parameter id="28" name="Portamento" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
+      <parameter id="28" name="Portamento" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
       <parameter id="29" name="Master Vol" direction="input" minimum="0.0" maximum="1.0"
                  default="0.5" content="other"/>
       <parameter id="30" name="Num Voices" direction="input" minimum="0.0" maximum="1.0"
                  default="0.2849999964237213" content="other"/>
-      <parameter id="31" name="Unison" direction="input" default="0.0" minimum="0.0"
-                 maximum="1.0" content="other"/>
+      <parameter id="31" name="Unison" direction="input" minimum="0.0" maximum="1.0"
+                 default="0.0" content="other"/>
     </parameters>
     <ports>
       <port direction="output" content="audio" name="Left"/>
