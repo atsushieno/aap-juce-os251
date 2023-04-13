@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 0171ded..7bce3cc 100644
+index 0171ded..f87f006 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -25,6 +25,7 @@ endif()
@@ -44,7 +44,7 @@ index 0171ded..7bce3cc 100644
 +target_include_directories(Os251 PRIVATE
 +        "${AAP_DIR}/include"
 +        )
-+juce_add_module(${AAP_JUCE_DIR}/aap-modules/juceaap_audio_plugin_client)
++juce_add_module(${AAP_JUCE_DIR}/aap-modules/aap_audio_processors)
 +
 +# begin Android specifics -->
 +# It is not beautiful, but there does not seem to be any way to add custom include directory for modules.
@@ -73,7 +73,7 @@ index 0171ded..7bce3cc 100644
 +# begin AAP specifics. -->
 +# It is needed in desktop too, for generate-aap-metadata.
 +target_link_libraries(Os251 PUBLIC
-+    juceaap_audio_plugin_client
++    aap_audio_processors
 +    )
 +
 +# begin Android specifics -->
