@@ -2,7 +2,7 @@
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
   <plugin name="OS-251" category="Instrument" author="Onsen Audio" developer="Onsen Audio"
-          unique-id="juceaap:6f735359" library="libOS-251_Standalone.so"
+          unique-id="juceaap:6f735359" library="libOs251_Standalone.so"
           entrypoint="GetJuceAAPFactoryStandalone">
     <extensions>
       <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v2"/>
