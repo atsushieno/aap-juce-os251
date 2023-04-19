@@ -49,7 +49,7 @@ android {
         abortOnError false
     }
 
-    ndkVersion "$ndk_version"
+    ndkVersion libs.versions.ndk.get()
 
     dependencies {
         implementation libs.androidx.core.ktx
@@ -58,5 +58,6 @@ android {
         implementation libs.libcxx.provider
         implementation libs.aap.core
         implementation libs.aap.midi.device.service
+        implementation libs.aap.ui.web
     }
 }
