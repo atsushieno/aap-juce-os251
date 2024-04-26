@@ -3,14 +3,18 @@ plugins {
     id 'kotlin-android'
 }
 
+kotlin {
+    jvmToolchain(11)
+}
 
 android {
-    compileSdkVersion 33
+    compileSdkPreview = "VanillaIceCream"
+    namespace = "org.androidaudioplugin.samples.os251"
 
     defaultConfig {
         applicationId "org.androidaudioplugin.ports.juce.os251"
-        minSdkVersion    29
-        targetSdkVersion 33
+        minSdk = 29
+        targetSdk = 34
         externalNativeBuild {
             cmake {
                 arguments "-DJUCE_DIR=${System.env.JUCE_DIR != null ? System.env.JUCE_DIR : ''}", "-DAAP_DIR=${System.env.AAP_DIR != null ? System.env.AAP_DIR : ''}", "-DAAP_JUCE_DIR=${System.env.AAP_JUCE_DIR != null ? System.env.AAP_JUCE_DIR : ''}", "-DANDROID_STL=c++_shared", "-DANDROID_CPP_FEATURES=exceptions rtti"

@@ -1,5 +1,5 @@
 <devices>
-    <device name="OS-251" manufacturer="androidaudioplugin.org" product="OS-251">
+    <device name="AAP OS-251" manufacturer="androidaudioplugin.org" product="OS-251">
         <input-port name="input" />
     </device>
 </devices>

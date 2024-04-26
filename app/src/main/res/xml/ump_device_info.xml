@@ -1,0 +1,6 @@
+<devices>
+    <device name="AAP OS-251 UMP" manufacturer="androidaudioplugin.org" product="OS-251">
+        <port name="port1" />
+    </device>
+</devices>
+

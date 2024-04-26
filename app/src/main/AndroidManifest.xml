@@ -3,8 +3,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:versionCode="1" android:versionName="1.0.0"
-    package="org.androidaudioplugin.samples.os251">
+    android:versionCode="1" android:versionName="1.0.0">
 
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true" android:xlargeScreens="true"/>
 
@@ -40,6 +39,15 @@
       </intent-filter>
       <meta-data android:name="android.media.midi.MidiDeviceService"
           android:resource="@xml/midi_device_info" />
+    </service>
+    <service android:name="org.androidaudioplugin.midideviceservice.StandaloneAudioPluginMidiUmpDeviceService"
+        android:permission="android.permission.BIND_MIDI_DEVICE_SERVICE"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.media.midi.MidiUmpDeviceService" />
+      </intent-filter>
+      <property android:name="android.media.midi.MidiUmpDeviceService"
+          android:resource="@xml/ump_device_info" />
     </service>
 
     <provider android:name="androidx.startup.InitializationProvider"
