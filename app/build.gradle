@@ -9,7 +9,7 @@ kotlin {
 
 android {
     compileSdk = libs.versions.android.compileSdk.get().toInteger()
-    namespace = "org.androidaudioplugin.samples.os251"
+    namespace = "org.androidaudioplugin.ports.juce.os251"
 
     defaultConfig {
         applicationId "org.androidaudioplugin.ports.juce.os251"
