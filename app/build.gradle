@@ -4,7 +4,7 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 android {
@@ -42,10 +42,12 @@ android {
 
     sourceSets {
         main.java.srcDirs +=
-            ["../external/OS-251/lib/JUCE/modules/juce_gui_basics/native/javaopt/app",
+            ["../external/OS-251/lib/JUCE/modules/juce_gui_basics/native/java/app",
+             "../external/OS-251/lib/JUCE/modules/juce_gui_basics/native/javaopt/app",
              "../external/aap-juce/java"]
         main.res.srcDirs +=
             []
+        main.assets.srcDirs += ["$buildDir/generated-assets"]
     }
 
     dependencies {
@@ -55,5 +57,15 @@ android {
         implementation libs.aap.midi.device.service
         implementation libs.aap.ui.web
         implementation libs.aap.ui.compose
+        implementation libs.aap.ui.compose.app
     }
+}
+
+task generateOs251Assets(type: Copy) {
+    from "$projectDir/../external/OS-251/assets/presets"
+    into "$buildDir/generated-assets/OS-251/presets"
+}
+
+tasks.matching { it.name == "preBuild" }.configureEach {
+    dependsOn generateOs251Assets
 }

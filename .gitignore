@@ -4,3 +4,8 @@ local.properties
 build
 .gradle
 dist
+.DS_Store
+.claude
+
+.stamp-juce
+.stamp-app

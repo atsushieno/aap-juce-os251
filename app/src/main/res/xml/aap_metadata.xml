@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
-  <plugin name="OS-251" category="Instrument" author="Onsen Audio" developer="Onsen Audio"
-          unique-id="juceaap:6f735359" library="libOs251_Standalone.so"
-          entrypoint="GetJuceAAPFactoryStandalone">
-    <extensions>
-      <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v2"/>
-      <extension uri="urn://androidaudioplugin.org/extensions/presets/v2"/>
-      <extension uri="urn://androidaudioplugin.org/extensions/state/v2"/>
-      <extension uri="urn://androidaudioplugin.org/extensions/midi2/v2"/>
-      <extension uri="urn://androidaudioplugin.org/extensions/gui/v2"/>
-    </extensions>
+  <plugin name="OS-251 AAP" category="Instrument" author="Onsen Audio" developer="Onsen Audio"
+      unique-id="juceaap:os-251" library="libOs251_Standalone.so"
+      gui:ui-view-factory="org.androidaudioplugin.juce.JuceAudioPluginViewFactory"
+      entrypoint="GetJuceAAPFactoryStandalone"
+      xmlns:gui="urn://androidaudioplugin.org/extensions/gui">
+  <extensions bom="0.12.0" />
     <ports>
       <port direction="output" content="audio" name="Left"/>
       <port direction="output" content="audio" name="Right"/>
