@@ -20,6 +20,7 @@ JUCE_PATCHES= \
 	$(PWD)/external/aap-juce/juce-patches/7.0.6/support-plugin-ui.patch \
 	$(PWD)/external/aap-juce/juce-patches/7.0.11/disable-cgwindowlistcreateimage.patch \
 	$(PWD)/external/aap-juce/juce-patches/7.0.11/juce-component-peer-view-touch.patch \
+	$(PWD)/external/aap-juce/juce-patches/7.0.11/component-peer-view-unregister-lifecycle-callbacks.patch \
 	$(PWD)/external/aap-juce/juce-patches/7.0.11/popup-menu-android.patch
 
 include $(AAP_JUCE_DIR)/Makefile.cmake-common
