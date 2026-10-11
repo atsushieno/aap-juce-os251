@@ -28,7 +28,7 @@ index 35827be..91fb085 100644
 +#add_subdirectory(tests)
 +#add_subdirectory(benchmark)
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index a907dcc..7b65ba8 100644
+index a907dcc..d609f8d 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -65,43 +65,43 @@ target_compile_definitions(Os251
@@ -108,58 +108,15 @@ index a907dcc..7b65ba8 100644
  endif()
  
  juce_add_binary_data(Os251Binaries
-@@ -144,4 +144,51 @@ set_target_properties(Os251Binaries PROPERTIES
-         POSITION_INDEPENDENT_CODE TRUE
+@@ -145,3 +145,8 @@ set_target_properties(Os251Binaries PROPERTIES
          )
  
-+# must be added before juce_generate_juce_header()
-+juce_add_module(${AAP_JUCE_DIR}/aap-modules/aap_audio_processors)
-+
  juce_generate_juce_header(Os251)
 +
-+# begin JUCEAAP specific -->
-+# It is not beautiful, but there does not seem to be any way to add custom include directory for modules.
-+include_directories(
-+        "${AAP_DIR}/include"
-+)
-+
-+target_link_libraries(Os251
-+        PRIVATE
-+        aap_audio_processors
-+)
-+
-+if (ANDROID)
-+
-+    # dependencies
-+    find_library(log "log")
-+    find_library(android "android")
-+    find_library(glesv2 "GLESv2")
-+    find_library(egl "EGL")
-+    find_package(androidaudioplugin CONFIG REQUIRED)
-+    set(cpufeatures_lib "cpufeatures")
-+    set(oboe_lib "oboe")
-+    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-+
-+    add_compile_definitions(
-+            [[JUCE_ANDROID=1]]
-+            [[JUCE_DONT_AUTO_OPEN_MIDI_DEVICES_ON_MOBILE=1]]
-+            [[JUCE_PUSH_NOTIFICATIONS=1]]
-+            [[JUCE_PUSH_NOTIFICATIONS_ACTIVITY="com/rmsl/juce/JuceActivity"]]
-+            [[JUCE_USE_ANDROID_OBOE=0]]
-+            [[JUCEAAP_HAVE_AUDIO_PLAYHEAD_NEW_POSITION_INFO=1]]
-+    )
-+
-+    target_link_libraries(Os251
-+            PRIVATE
-+            ${log}
-+            ${android}
-+            ${glesv2}
-+            ${egl}
-+            androidaudioplugin::androidaudioplugin
-+    )
-+
-+endif (ANDROID)
-+# <-- end JUCEAAP specific
++aap_juce_plugin(TARGET Os251)
++if(ANDROID)
++    target_compile_definitions(Os251 PUBLIC JUCE_USE_ANDROID_OBOE=0)
++endif()
 diff --git a/src/views/PresetMenuLookAndFeel.h b/src/views/PresetMenuLookAndFeel.h
 index f671a4c..b02aee7 100644
 --- a/src/views/PresetMenuLookAndFeel.h
