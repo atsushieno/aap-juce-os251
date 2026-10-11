@@ -1,8 +1,19 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 35827be..bb4eb4c 100644
+index 35827be..91fb085 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -42,9 +42,9 @@ FetchContent_MakeAvailable(
+@@ -1,4 +1,9 @@
+-cmake_minimum_required(VERSION 3.20)
++cmake_minimum_required(VERSION 3.22)
++
++get_filename_component(app_source "${CMAKE_CURRENT_LIST_DIR}" REALPATH)
++add_subdirectory("${app_source}/../aap-juce" "${CMAKE_CURRENT_BINARY_DIR}/aap-juce" EXCLUDE_FROM_ALL)
++aap_juce_configure(JUCE_SOURCE_DIR lib/JUCE ADOPT_EXISTING_PATCHES)
++
+ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.12" CACHE STRING "Minimum OS X deployment target")
+ 
+ # It cause fe_expected_compiler_job locally.
+@@ -42,9 +47,9 @@ FetchContent_MakeAvailable(
  # Enable JUCE. Do not use find_package to prevent from mix up with one globally installed.
  add_subdirectory(lib/JUCE)
  
